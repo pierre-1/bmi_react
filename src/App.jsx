@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Form from "./components/Form";
-import { calculateBmi } from './helpers/bmiHelper';
+import { calculateBmi } from "./helpers/bmiHelper";
 
 class App extends Component {
   state = {
-    weight: '',
-    height: '',
-    bmiValue: '',
-    bmiMessage: ''
+    weight: "",
+    height: "",
+    bmiValue: "",
+    bmiMessage: ""
   };
 
   onChangeHandler = e => this.setState({ [e.target.name]: e.target.value });
@@ -18,7 +18,7 @@ class App extends Component {
       this.state.weight,
       this.state.height
     );
-    this.setState({ bmiValue: bmiValue, bmiMessage: bmiMessage});
+    this.setState({ bmiValue: bmiValue, bmiMessage: bmiMessage });
   };
 
   render() {
