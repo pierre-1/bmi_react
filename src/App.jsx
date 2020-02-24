@@ -1,28 +1,36 @@
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
+import Form from "./components/Form";
+import { calculateBmi } from './helpers/bmiHelper';
 
 class App extends Component {
+  state = {
+    weight: '',
+    height: '',
+    bmiValue: '',
+    bmiMessage: ''
+  };
+
+  onChangeHandler = e => this.setState({ [e.target.name]: e.target.value });
+
+  onSubmitHandler = e => {
+    e.preventDefault();
+    const [bmiValue, bmiMessage] = calculateBmi(
+      this.state.weight,
+      this.state.height
+    );
+    this.setState({ bmiValue: bmiValue, bmiMessage: bmiMessage});
+  };
+
   render() {
     return (
-      <form>
-        <label htmlFor='weight'>Weight</label>
-        <input 
-          type='number'
-          required
-          placeholder='Weight in kgs'
-          name='weight'
-          id='weight'
+      <div>
+        <Form
+          weight={this.state.weight}
+          height={this.state.height}
+          onChangeHandler={this.onChangeHandler}
+          onSubmitHandler={this.onSubmitHandler}
         />
-        <label htmlFor='height'>Height</label>
-        <input
-          type='number'
-          required
-          placeholder='Height in cm'
-          name='height'
-          id='height'
-          />
-          <button>Calculate BMI</button>
-      </form>
+      </div>
     );
   }
 }
