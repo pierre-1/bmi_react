@@ -1,10 +1,10 @@
-export const calculateBMI = (weight, height) => {
+export const calculateBmi= (weight, height) => {
     const bmiValue = (weight / (((height / 100) * height) / 100)).toFixed(2);
-    const bmiMessage = setBMIMessage(bmiValue);
+    const bmiMessage = setBmiMessage(bmiValue);
     return [bmiValue, bmiMessage];
 };
 
-const setBMIMessage = finalBMI => {
+const setBmiMessage = finalBMI => {
     if (finalBMI < 18.5) {
         return 'Underweight';
     }
