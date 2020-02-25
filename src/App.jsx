@@ -9,19 +9,19 @@ class App extends Component {
     height: "",
     bmiValue: "",
     bmiMessage: "",
-    calculationSystem: "", 
+    calculationSystem: "metric", 
   };
 
   onChangeHandler = e => this.setState({ [e.target.name]: e.target.value });
 
   onSubmitHandler = e => {
     e.preventDefault();
-    const [calculationSystem, bmiValue, bmiMessage] = calculateBmi(
+    const [ bmiValue, bmiMessage] = calculateBmi(
       this.state.calculationSystem,
       this.state.weight,
       this.state.height
     );
-    this.setState({ calculationSystem: calculationSystem, bmiValue: bmiValue, bmiMessage: bmiMessage });
+    this.setState({ bmiValue: bmiValue, bmiMessage: bmiMessage });
   };
 
   render() {
