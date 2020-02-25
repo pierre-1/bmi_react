@@ -17,9 +17,9 @@ class App extends Component {
   onSubmitHandler = e => {
     e.preventDefault();
     const [ bmiValue, bmiMessage] = calculateBmi(
-      this.state.calculationSystem,
       this.state.weight,
-      this.state.height
+      this.state.height,
+      this.state.calculationSystem
     );
     this.setState({ bmiValue: bmiValue, bmiMessage: bmiMessage });
   };
@@ -28,11 +28,11 @@ class App extends Component {
     return (
       <div>
         <Form
-          calculationSystem={this.state.calculationSystem}
           weight={this.state.weight}
           height={this.state.height}
           onChangeHandler={this.onChangeHandler}
           onSubmitHandler={this.onSubmitHandler}
+          calculationSystem={this.state.calculationSystem}
         />
         {this.state.bmiValue && (
           <Message
