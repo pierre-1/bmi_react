@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Form from "./components/Form";
-import Message from './components/Message'
+import Message from './components/Message';
 import { calculateBmi } from "./helpers/bmiHelper";
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
     height: "",
     bmiValue: "",
     bmiMessage: "",
-    calculationSystem: "metric", 
+    calculationSystem: "metric"
   };
 
   onChangeHandler = e => this.setState({ [e.target.name]: e.target.value });

@@ -8,9 +8,10 @@ const Form = props => {
   return (
     <form onSubmit={props.onSubmitHandler}>
 
-      <select name= 'calculationSystem' id='selectmethod' onChange={props.onChangeHandler}>
-        <option value='metric'>Metric</option>
-        <option value='imperial'>Imperial</option>
+      <select name= 'calculationSystem' id='selectmethod' 
+        onChange={props.onChangeHandler}>
+        <option name='metric' value='metric'>Metric</option>
+        <option name='imperial' value='imperial'>Imperial</option>
       </select>
 
       <label htmlFor="weight">Weight</label>
