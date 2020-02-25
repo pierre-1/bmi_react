@@ -1,13 +1,23 @@
 import React from "react";
 
 const Form = props => {
+
+  const weightPlaceholder = props.calculationSystem == 'metric' ? 'Weight in kgs' : 'Weight in pounds'
+  const heightPlaceholder = props.calculationSystem == 'metric' ? 'Height in cm' : 'Height in inches'
+
   return (
     <form onSubmit={props.onSubmitHandler}>
+
+      <select name= 'calculationSystem' id='selectmethod' onChange={props.onChangeHandler}>
+        <option value='metric'>Metric</option>
+        <option value='imperial'>Imperial</option>
+      </select>
+
       <label htmlFor="weight">Weight</label>
       <input
         type="number"
         required
-        placeholder="Weight in kgs"
+        placeholder={weightPlaceholder}
         value={props.weight}
         name="weight"
         id="weight"
@@ -17,7 +27,7 @@ const Form = props => {
       <input
         type="number"
         required
-        placeholder="Height in cm"
+        placeholder={heightPlaceholder}
         value={props.height}
         name="height"
         id="height"
